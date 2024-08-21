@@ -13,6 +13,7 @@ const lnd = new LndGrpc(options);
 
 const connect = async () => {
  try {
+
    await lnd.connect();
 
    if (lnd.state !== "active") {
