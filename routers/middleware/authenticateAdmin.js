@@ -37,10 +37,5 @@ module.exports = (req, res, next) => {
    res.status(401).json({ message: "No token!" });
  }
 };
-const options = {
-  host: process.env.HOST,
-  cert: process.env.CERT,
-  macaroon: process.env.MACAROON,
-};
-exports.options = options;
+
 

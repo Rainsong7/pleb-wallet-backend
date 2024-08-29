@@ -27,12 +27,11 @@ server.use(cors());
 
 // Use rate limiting middleware to limit the number of requests from a single IP
 server.use(
-    rateLimit({
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100, // limit each IP to 100 requests per windowMs
-    })
+  rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+  })
 );
-   
 
 // Use the built-in JSON middleware to parse incoming JSON requests
 server.use(express.json());
@@ -42,8 +41,8 @@ connect();
 
 // Set up a route to handle GET requests to the root path
 server.get("/", (req, res) => {
- // Send a JSON response with a "message" property set to "I'm alive!"
- res.status(200).json({ message: "I'm alive!" });
+  // Send a JSON response with a "message" property set to "I'm alive!"
+  res.status(200).json({ message: "I'm alive!" });
 });
 
 // Add our routers before server.listen()
@@ -54,6 +53,6 @@ server.use("/lightning", lightningRouter);
 const PORT = process.env.PORT || 5500;
 
 server.listen(PORT, () => {
- // Log a message to the console when the server starts listening
- console.log(`Server listening on port ${PORT}`);
+  // Log a message to the console when the server starts listening
+  console.log(`Server listening on port ${PORT}`);
 });
